@@ -182,7 +182,7 @@ arrumar <- function(arqs_treino, nm) {
                group = as.character(group),
                group = ifelse(is.na(group), '4', group))
     }) %>%
-    ungroup()
+    dplyr::ungroup()
   d <- bd %>%
     dplyr::mutate(letras = stringr::str_match(basename(arq), '([0-9]{4})_')[, 2]) %>%
     dplyr::group_by(arq) %>%
