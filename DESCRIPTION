@@ -9,6 +9,7 @@ License: What license is it under?
 Encoding: UTF-8
 LazyData: true
 Imports:
+    magrittr,
     caret,
     dplyr,
     tibble,
