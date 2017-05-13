@@ -6,7 +6,11 @@
 download <- function(dest = NULL) {
   base <- 'http://www.tjrs.jus.br/site_php/consulta'
   u <- paste0(base, '/human_check/humancheck_showcode.php')
-  if(is.null(dest)) dest <- tempfile(pattern = 'captcha', fileext = '.jpeg')
+  if(is.null(dest)) {
+    dest <- tempfile(pattern = 'captcha', fileext = '.jpeg')
+  } else {
+    dest <- tempfile(pattern = 'captcha', tmpdir = dest, fileext = '.jpeg')
+    }
   # download.file(url = paste0(base, captcha), destfile = dest, mode = "wb")
   httr::GET(u, httr::write_disk(dest, overwrite = TRUE))
   return(dest)
